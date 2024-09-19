@@ -1,0 +1,94 @@
+import turtle
+
+def draw_H(t, x, y):
+    positions_H = [(x, y + 30), (x, y + 20), (x, y + 10), (x + 10, y + 30), (x + 10, y + 20), (x + 10, y + 10), (x, y + 20), (x + 10, y + 20)]
+    for pos in positions_H:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_a(t, x, y):
+    positions_a = [(x, y + 20), (x + 5, y + 30), (x + 10, y + 30), (x + 15, y + 25), (x + 15, y + 15), (x + 10, y + 10), (x + 5, y + 10), (x, y + 15)]
+    for pos in positions_a:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_p(t, x, y):
+    positions_p = [(x, y), (x, y + 30), (x + 5, y + 30), (x + 10, y + 25), (x + 10, y + 15), (x + 5, y + 10), (x, y + 10)]
+    for pos in positions_p:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_y(t, x, y):
+    positions_y = [(x, y + 30), (x + 10, y + 20), (x + 20, y + 30), (x + 10, y + 20), (x + 10, y)]
+    for pos in positions_y:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_S(t, x, y):
+    positions_S = [(x, y + 25), (x + 5, y + 30), (x + 15, y + 30), (x + 20, y + 25), (x + 20, y + 20), (x + 15, y + 15), (x + 5, y + 15), (x, y + 10)]
+    for pos in positions_S:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_e(t, x, y):
+    positions_e = [(x, y + 20), (x + 5, y + 25), (x + 15, y + 25), (x + 20, y + 20), (x + 20, y + 15), (x + 15, y + 10), (x + 5, y + 10)]
+    for pos in positions_e:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_2(t, x, y):
+    positions_2 = [(x, y + 25), (x + 5, y + 30), (x + 15, y + 30), (x + 20, y + 25), (x + 20, y + 20), (x, y)]
+    for pos in positions_2:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_1(t, x, y):
+    positions_1 = [(x, y), (x, y + 30)]
+    for pos in positions_1:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_s(t, x, y):
+    positions_s = [(x, y + 25), (x + 5, y + 30), (x + 15, y + 30), (x + 20, y + 25), (x + 20, y + 20), (x + 15, y + 15), (x + 5, y + 15), (x, y + 10)]
+    for pos in positions_s:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+def draw_t(t, x, y):
+    positions_t = [(x, y + 30), (x, y), (x + 10, y + 30), (x, y + 30)]
+    for pos in positions_t:
+        t.penup()
+        t.goto(pos)
+        t.pendown()
+
+# Setup turtle
+t = turtle.Turtle()
+t.speed(1)
+t.color("red")
+
+# Draw each letter
+draw_H(t, -300, -100)
+draw_a(t, -250, -100)
+draw_p(t, -200, -100)
+draw_p(t, -150, -100)
+draw_y(t, -100, -100)
+draw_S(t, -50, -100)
+draw_e(t, 0, -100)
+draw_p(t, 50, -100)
+draw_2(t, 100, -100)
+draw_1(t, 150, -100)
+draw_s(t, 200, -100)
+draw_t(t, 250, -100)
+
+# Hide the turtle and display the window
+t.hideturtle()
+turtle.done()
