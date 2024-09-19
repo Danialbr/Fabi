@@ -1,4 +1,4 @@
-Descargar e instalar Python:
+Descargue e instale Python:
 Tiene que ir a la página oficial de Python: python.org. 
 Hace clic en Downloads y selecciona la versión 3.12.06.
 Descargue el instalador y ejectutelo en su laptop.
