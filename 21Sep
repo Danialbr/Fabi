@@ -1,70 +1,198 @@
-from turtle import *
+import turtle
+import random
+import time
 from math import *
 
-speed(0)
-bgcolor("black")
-goto(0, -40)
+# Part 1: Star and Planet Explosion
 
-# Draw leaves
-for i in range(16):
-    for j in range(18):
-        color('#FFA216')
-        rt(90)
-        circle(150 - j * 6, 90)
-        lt(90)
-        circle(150 - j * 6, 90)
-        rt(180)
-    circle(40, 24)
+# Screen setup
+turtle.bgcolor("black")
+turtle.title("Star and Planet Explosion")
 
-# Draw flower center
-color('black')
-shape('circle')
-shapesize(0.5)
-fillcolor('#8B4513')
-golden_ang = 137.508
-phi = golden_ang * (pi / 180)
+# Function to draw a planet
+def draw_planet(t, size, color):
+    t.begin_fill()
+    t.color(color)
+    t.circle(size)
+    t.end_fill()
 
-for i in range(140):
-    r = 4 * sqrt(i)
-    theta = i * phi
-    x = r * cos(theta)
-    y = r * sin(theta)
-    penup()
-    goto(x, y)
-    setheading(i * golden_ang)
-    pendown()
-    stamp()
+# Function to draw a star
+def draw_star(t, size):
+    t.begin_fill()
+    t.color("white")
+    for _ in range(5):
+        t.forward(size)
+        t.right(144)  # Angle to form the star
+    t.end_fill()
 
-# Define points to draw letters
+# Function to write text slowly in the center
+def write_text_slowly(text):
+    turtle.penup()
+    turtle.goto(-350, 0)  # Center of the screen
+    turtle.setheading(0)  # Ensure it's facing right
+    turtle.pendown()
+    turtle.color("white")  # Text color
+    for char in text:
+        turtle.write(char, align="center", font=("Lucida Handwriting", 24, "normal"))
+        turtle.penup()
+        turtle.forward(30)  # Move right for the next letter
+        turtle.pendown()
+        time.sleep(0.2)  # Delay between characters
+
+# Turtle setup
+t = turtle.Turtle()
+t.speed(0)  # Maximum speed
+t.penup()
+t.hideturtle()
+
+# Soft planet colors
+planet_colors = ["lightblue", "lightgreen", "lightcoral", "lightyellow", "lightpink"]
+
+# Generate planets
+for _ in range(5):
+    t.goto(random.randint(-400, 400), random.randint(-400, 400))
+    draw_planet(t, random.randint(20, 40), random.choice(planet_colors))
+
+# Generate stars
+for _ in range(30):
+    t.goto(random.randint(-400, 400), random.randint(-400, 400))
+    draw_star(t, random.randint(10, 20))
+
+# Clear the screen
+t.clear()
+
+# Write text slowly in the center
+t.goto(0, 0)  # Return to center
+write_text_slowly("Dobrý den slečno Fabiola")
+
+# Small pause before moving to the next part
+time.sleep(2)
+
+# Clear the screen for the next animation
+turtle.clear()
+
+# Part 2: Flower Animation
+
+def write_slowly(text, font_size=30):
+    turtle.penup()
+    total_width = 0
+    
+    for char in text:
+        total_width += 40  # Approximate width for characters
+    
+    start_x = -total_width / 2
+    turtle.goto(start_x, 400)  # Center the starting position above the flower
+    turtle.pendown()
+    
+    for char in text:
+        turtle.write(char, font=("Lucida Handwriting", font_size, "normal"))
+        time.sleep(0.2)  # Adjust this value to change the speed of writing
+        turtle.penup()
+        turtle.forward(40)  # Move forward by an approximate width
+        turtle.pendown()
+    
+    turtle.penup()  # Lift the pen to avoid drawing a line to the flower
+
+def draw_green_line():
+    original_position = turtle.position()
+    original_heading = turtle.heading()
+    original_pensize = turtle.pensize()
+    
+    turtle.penup()
+    turtle.goto(0, 0)  # Start from the center of the flower
+    turtle.pendown()
+    turtle.pensize(5)  # Make the line a bit thick
+    turtle.color("green")
+    turtle.setheading(270)  # Point downwards
+    turtle.forward(400)  # Draw line to y=-400
+    
+    # Restore original settings
+    turtle.penup()
+    turtle.goto(original_position)
+    turtle.setheading(original_heading)
+    turtle.pensize(original_pensize)
+
+def draw_flower():
+    turtle.speed(0)
+    turtle.bgcolor("black")
+    turtle.goto(0, -40)
+    
+    turtle.pendown()  # Ensure the pen is down before drawing the flower
+    
+    # Draw leaves
+    for i in range(16):
+        for j in range(18):
+            turtle.color('#FFA216')
+            turtle.rt(90)
+            turtle.circle(150 - j * 6, 90)
+            turtle.lt(90)
+            turtle.circle(150 - j * 6, 90)
+            turtle.rt(180)
+        turtle.circle(40, 24)
+    
+    # Draw flower center
+    turtle.color('black')
+    turtle.shape('circle')
+    turtle.shapesize(0.5)
+    turtle.fillcolor('#8B4513')
+    golden_ang = 137.508
+    phi = golden_ang * (pi / 180)
+    
+    for i in range(140):
+        r = 4 * sqrt(i)
+        theta = i * phi
+        x = r * cos(theta)
+        y = r * sin(theta)
+        turtle.penup()
+        turtle.goto(x, y)
+        turtle.setheading(i * golden_ang)
+        turtle.pendown()
+        turtle.stamp()
+    
+    # Draw letters
+    draw_F(-27, -20)
+    draw_V(7, -20)
+
 def point(x, y):
-    penup()
-    goto(x, y)
-    pendown()
-    color('black')
-    fillcolor('#FFA216')
-    begin_fill()
-    circle(4)
-    end_fill()
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.color('black')
+    turtle.fillcolor('#FFA216')
+    turtle.begin_fill()
+    turtle.circle(4)
+    turtle.end_fill()
 
-# Function to draw 'F'
 def draw_F(x, y):
     positions_f = [(x, y + 30), (x + 6, y + 30), (x + 12, y + 30), (x + 18, y + 30), (x + 24, y + 30),
                    (x, y + 24), (x + 6, y + 16), (x + 12, y + 16), (x, y + 18), (x, y + 12), (x, y + 6), (x, y)]
-
+    
     for pos in positions_f:
         point(*pos)
 
-# Function to draw 'V'
 def draw_V(x, y):
     positions_v = [(x, y + 30), (x + 3, y + 24), (x + 6, y + 18), (x + 9, y + 12), (x + 12, y + 6), (x + 15, y),
                    (x + 18, y + 6), (x + 21, y + 12), (x + 24, y + 18), (x + 27, y + 24), (x + 30, y + 30)]
-
+    
     for pos in positions_v:
         point(*pos)
 
-# Draw 'FV'
-draw_F(-27, -20)
-draw_V(7, -20)
+# Setup the turtle
+turtle.speed(0)
+turtle.bgcolor("black")
+turtle.color("white")  # Change text color to white
 
-hideturtle()
-done()
+# Write text slowly
+write_slowly("Happy Sept 21st!", font_size=30)
+
+# Add a small delay before drawing the green line and flower
+time.sleep(0.5)
+
+# Draw the green line
+draw_green_line()
+
+# Draw the flower
+draw_flower()
+
+turtle.hideturtle()
+turtle.done()
