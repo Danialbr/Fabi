@@ -2,7 +2,7 @@ Descargue e instale Python:
 Tiene que ir a la página oficial de Python: python.org. 
 Hace clic en Downloads y selecciona la versión 3.12.06.
 Descargue el instalador y ejectutelo en su laptop.
-Asegúrese de marcar la opción “Add Python to PATH”.
+Asegúrese de marcar la opción “Add Python to PATH”. RE IMPORTANTEEEEEEEEE SINO NO FUNCIONA PLS
 Instale una IDE o editor de texto:
 Puede usar cualquier editor de texto como Notepad++ o un IDE como Visual Estudio Code.
 IDLE viene incluido con la instalación de Python, así que no necesita descargar nada adicional si no quiere. 
