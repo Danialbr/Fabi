@@ -37,7 +37,7 @@ def write_text_slowly(text):
         turtle.penup()
         turtle.forward(30)  # Move right for the next letter
         turtle.pendown()
-        time.sleep(0.2)  # Delay between characters
+        time.sleep(0.02)  # Delay between characters
 
 # Turtle setup
 t = turtle.Turtle()
@@ -86,14 +86,14 @@ def write_slowly(text, font_size=30):
     
     for char in text:
         turtle.write(char, font=("Lucida Handwriting", font_size, "normal"))
-        time.sleep(0.2)  # Adjust this value to change the speed of writing
+        time.sleep(0.05)  # Adjust this value to change the speed of writing
         turtle.penup()
         turtle.forward(40)  # Move forward by an approximate width
         turtle.pendown()
     
     turtle.penup()  # Lift the pen to avoid drawing a line to the flower
 
-def draw_green_line():
+def draw_green_line(): 
     original_position = turtle.position()
     original_heading = turtle.heading()
     original_pensize = turtle.pensize()
