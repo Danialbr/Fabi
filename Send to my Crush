@@ -7,7 +7,7 @@ from math import *
 
 # Screen setup
 turtle.bgcolor("black")
-turtle.title("Star and Planet Explosion")
+turtle.title("September 21st Fabix gift")
 
 # Function to draw a planet
 def draw_planet(t, size, color):
@@ -112,6 +112,59 @@ def draw_green_line():
     turtle.setheading(original_heading)
     turtle.pensize(original_pensize)
 
+def draw_green_petal():
+    original_position = turtle.position()
+    original_heading = turtle.heading()
+    original_pencolor = turtle.pencolor()
+    original_fillcolor = turtle.fillcolor()
+    
+    turtle.penup()
+    turtle.goto(0, -300)  # Middle of the stem
+    turtle.setheading(0)  # Point to the right
+    turtle.color("green")
+    turtle.pendown()
+    
+    # Draw a leaf shape
+    turtle.begin_fill()
+    turtle.circle(50, 60)
+    turtle.left(120)
+    turtle.circle(50, 60)
+    turtle.end_fill()
+    
+    # Restore original settings
+    turtle.penup()
+    turtle.goto(original_position)
+    turtle.setheading(original_heading)
+    turtle.pencolor(original_pencolor)
+    turtle.fillcolor(original_fillcolor)
+
+def draw_large_green_leaf():
+    original_position = turtle.position()
+    original_heading = turtle.heading()
+    original_pencolor = turtle.pencolor()
+    original_fillcolor = turtle.fillcolor()
+    
+    turtle.penup()
+    turtle.goto(0, -300)  # Start at the same position as the small leaf
+    turtle.setheading(180)  # Point to the left
+    turtle.color("green")
+    turtle.pendown()
+    
+    # Draw a larger leaf shape
+    turtle.begin_fill()
+    turtle.circle(100, 60)  # Larger radius for the larger leaf
+    turtle.left(120)
+    turtle.circle(100, 60)
+    turtle.end_fill()
+    
+    # Restore original settings
+    turtle.penup()
+    turtle.goto(original_position)
+    turtle.setheading(original_heading)
+    turtle.pencolor(original_pencolor)
+    turtle.fillcolor(original_fillcolor)
+
+# Update the draw_flower function to include the delay
 def draw_flower():
     turtle.speed(0)
     turtle.bgcolor("black")
@@ -149,9 +202,16 @@ def draw_flower():
         turtle.pendown()
         turtle.stamp()
     
+    # Draw the green petal
+    draw_green_petal()
+    # Draw the larger green leaf
+    draw_large_green_leaf()
     # Draw letters
     draw_F(-27, -20)
     draw_V(7, -20)
+
+    # Add a delay of 3 seconds before clearing the screen
+    time.sleep(3)
 
 def point(x, y):
     turtle.penup()
@@ -194,5 +254,16 @@ draw_green_line()
 # Draw the flower
 draw_flower()
 
-turtle.hideturtle()
+# Clear the turtle and draw the final text
+turtle.clear()
+turtle.penup()
+turtle.goto(-100, 0)  # Center the text
+turtle.setheading(0)  # Ensure it's facing right
+turtle.pendown()
+turtle.color("white")  # Text color
+
+# Write the final message
+write_text_slowly("Merci ma chère d'être jolie")
+
+# Finish the drawing
 turtle.done()
